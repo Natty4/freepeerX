@@ -1,5 +1,5 @@
 ### FreePeerX - P2P Meter Taxi Web Application 
-# <a href="https://freepeerX.vercel.app/">FreePeerX 🤓</a>
+# <a href="https://freepeerX.vercel.app/" target="_blank">FreePeerX 🤓</a>
 <div>
 
 <p><em>`Direct Driver-to-Passenger Connection • No Middleman • Lower Fees • Faster Service`</em></p>
