@@ -397,7 +397,7 @@ Contributions are welcome! Here's how you can contribute:
 This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
 
 ---
-````
+
 # FreePeerX - P2P Meter Taxi Web Application
   This project is a demonstration of the concept and is not intended for production use. It showcases the potential of P2P technology in the ride-hailing industry. And it is fully built with V0. I just added some features and modified the code a little bit. and as the P2P communication is not fully implemented, (no warry the app will work with simulated drivers.) so I'll be working on that in the future. 
 
