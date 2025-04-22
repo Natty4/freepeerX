@@ -6,6 +6,13 @@
 
 </div>FreePeerX is a revolutionary peer-to-peer meter taxi application that connects drivers and passengers directly without intermediaries. By leveraging WebRTC technology through PeerJS, FreePeerX eliminates the need for central servers to handle ride matching and fare calculation, resulting in lower fees and a more efficient service.
 
+``` 
+<a> 
+This project is a demonstration of the concept and is not intended for production use. It showcases the potential of P2P technology in the ride-hailing industry. And it is fully built with V0. I just added some features and modified the code a little bit. and as the P2P communication is not fully implemented, (no warry the app will work with simulated drivers.) so I'll be working on that in the future. 
+
+</a>
+```
+
 ## 📋 Table of Contents
 
 - [Technology Stack](#-technology-stack)
