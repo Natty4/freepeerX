@@ -25,6 +25,7 @@
 <details>
   FreePeerX is built using modern web technologies:
   <summary>Tools</summary>
+
   - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
   - **Maps**: Leaflet.js for interactive maps
   - **P2P Communication**: PeerJS (WebRTC)
@@ -38,6 +39,10 @@
 
 
 ## ✨ Features
+
+<details>
+  <summary>Key Features</summary>
+
 
 ### Landing Page
 
@@ -150,6 +155,7 @@
 - Option to share ride details
 - Option to start a new ride
 
+</details>
 
 ## 🚀 Installation
 
@@ -274,15 +280,17 @@ FreePeerX is built with a modular architecture that separates concerns into dist
 
 <details>
   <summary>Core Components</summary>
-    1. **P2PCommunicationManager**: Handles all peer-to-peer communication using PeerJS
-    2. **DriverRegistration**: Manages driver information and online status
-    3. **LocationTracker**: Tracks and records user location using the Geolocation API
-    4. **FareCalculator**: Calculates ride fares based on distance and time
-    5. **CodeManager**: Generates and verifies unique codes for ride pairing
-    6. **DriversManager**: Manages driver discovery and selection
-    7. **MapManager**: Handles map initialization, markers, and routes
+  
+  1. **P2PCommunicationManager**: Handles all peer-to-peer communication using PeerJS
+  2. **DriverRegistration**: Manages driver information and online status
+  3. **LocationTracker**: Tracks and records user location using the Geolocation API
+  4. **FareCalculator**: Calculates ride fares based on distance and time
+  5. **CodeManager**: Generates and verifies unique codes for ride pairing
+  6. **DriversManager**: Manages driver discovery and selection
+  7. **MapManager**: Handles map initialization, markers, and routes
 
 </details>
+
 ### Data Flow
 
 
