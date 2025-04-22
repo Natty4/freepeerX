@@ -1933,12 +1933,12 @@ class DriversManager {
     this.drivers = []
 
     const names = [
-      "John Smith",
+      "Mamo Kimith",
       "Maria Garcia",
-      "David Kim",
-      "Sarah Johnson",
+      "Chombe Kim",
+      "Sarah Nega",
       "Ahmed Hassan",
-      "Priya Patel",
+      "Bini Bariyaw",
       "Carlos Rodriguez",
       "Emma Wilson",
       "Liu Wei",
