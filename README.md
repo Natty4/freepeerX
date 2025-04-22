@@ -44,161 +44,169 @@
   <summary>Key Features</summary>
 
 
-### Landing Page
+  ### Landing Page
 
-<div>
+  <div>
 
-</div>The landing page features an animated cityscape with P2P visualization that demonstrates how FreePeerX connects drivers and passengers directly. The animation includes:
+  </div>The landing page features an animated cityscape with P2P visualization that demonstrates how FreePeerX connects drivers and passengers directly. The animation includes:
 
-- Dynamic skyline with moving buildings
-- Animated cars with passengers
-- Data packet visualization showing P2P connections
-- Location pins representing drivers and passengers
-- Optional video background of a city at night
-
-
-### User Type Selection
-
-<div>
-
-</div>Users can choose to use the application as either a passenger or a driver:
-
-- **Passenger**: Search for nearby drivers and request rides
-- **Driver**: Register vehicle information and accept ride requests
+  - Dynamic skyline with moving buildings
+  - Animated cars with passengers
+  - Data packet visualization showing P2P connections
+  - Location pins representing drivers and passengers
+  - Optional video background of a city at night
 
 
-### Driver Registration
+  ### User Type Selection
 
-<div>
+  <div>
 
-</div>Drivers can register with the following information:
+  </div>Users can choose to use the application as either a passenger or a driver:
 
-- Full Name
-- Car Type
-- Car Color
-- City
-- Location (latitude and longitude) automatically detected
-- Option to remember driver information for future sessions
+  - **Passenger**: Search for nearby drivers and request rides
+  - **Driver**: Register vehicle information and accept ride requests
 
 
-### Driver Dashboard
+  ### Driver Registration
 
-<div>
+  <div>
 
-</div>The driver dashboard provides:
+  </div>Drivers can register with the following information:
 
-- Real-time location tracking on a map
-- Online/offline status toggle
-- Ride request notifications
-- Daily earnings statistics
-- Completed rides counter
-- Driver rating
-
-
-### Passenger Code Generation
-
-<div>
-
-</div>Passengers receive a unique 6-digit code that:
-
-- Identifies them in the system
-- Can be shared with drivers for direct connection
-- Expires after 5 minutes for security
-- Can be reset if needed
+  - Full Name
+  - Car Type
+  - Car Color
+  - City
+  - Location (latitude and longitude) automatically detected
+  - Option to remember driver information for future sessions
 
 
-### Driver Selection
+  ### Driver Dashboard
 
-<div>
+  <div>
 
-</div>Passengers can:
+  </div>The driver dashboard provides:
 
-- View nearby drivers on a map
-- See driver details (name, vehicle, rating)
-- View estimated distance and arrival time
-- Select a driver to request a ride
-- Distinguish between real P2P drivers and simulated drivers
-
-
-### Ride Pairing
-
-<div>
-
-</div>The pairing screen allows:
-
-- Entering the driver's code to start the ride
-- Verification of the code's validity
-- Secure connection establishment between driver and passenger
+  - Real-time location tracking on a map
+  - Online/offline status toggle
+  - Ride request notifications
+  - Daily earnings statistics
+  - Completed rides counter
+  - Driver rating
 
 
-### Active Ride
+  ### Passenger Code Generation
 
-<div>
+  <div>
 
-</div>During an active ride:
+  </div>Passengers receive a unique 6-digit code that:
 
-- Real-time map shows current location and route
-- Live fare calculation based on distance and time
-- Driver information display
-- Option to end the ride
+  - Identifies them in the system
+  - Can be shared with drivers for direct connection
+  - Expires after 5 minutes for security
+  - Can be reset if needed
 
 
-### Ride Summary
+  ### Driver Selection
 
-<div>
+  <div>
 
-</div>After completing a ride:
+  </div>Passengers can:
 
-- Detailed fare breakdown (base fare, distance charge, time charge)
-- Total distance traveled
-- Total time elapsed
-- Option to share ride details
-- Option to start a new ride
+  - View nearby drivers on a map
+  - See driver details (name, vehicle, rating)
+  - View estimated distance and arrival time
+  - Select a driver to request a ride
+  - Distinguish between real P2P drivers and simulated drivers
+
+
+  ### Ride Pairing
+
+  <div>
+
+  </div>The pairing screen allows:
+
+  - Entering the driver's code to start the ride
+  - Verification of the code's validity
+  - Secure connection establishment between driver and passenger
+
+
+  ### Active Ride
+
+  <div>
+
+  </div>During an active ride:
+
+  - Real-time map shows current location and route
+  - Live fare calculation based on distance and time
+  - Driver information display
+  - Option to end the ride
+
+
+  ### Ride Summary
+
+  <div>
+
+  </div>After completing a ride:
+
+  - Detailed fare breakdown (base fare, distance charge, time charge)
+  - Total distance traveled
+  - Total time elapsed
+  - Option to share ride details
+  - Option to start a new ride
 
 </details>
 
 ## 🚀 Installation
 
-### Prerequisites
+<details>
+  <summary>Prerequisites</summary>
 
-- Modern web browser with JavaScript enabled
-- Internet connection for map tiles and P2P communication
+  ### Prerequisites
 
+  - Modern web browser with JavaScript enabled
+  - Internet connection for map tiles and P2P communication
 
-### Local Setup
+  </details>
+<details>
+  <summary>Local Setup</summary>
 
-1. Clone the repository:
+  ### Local Setup
 
-
-```shellscript
-git clone https://github.com/natty4/freepeerX.git
-cd freepeerx
-```
-
-2. Open the project in a web server. You can use any of these methods:
+  1. Clone the repository:
 
 
-Using Python:
+  ```shellscript
+  git clone https://github.com/natty4/freepeerX.git
+  cd freepeerx
+  ```
 
-```shellscript
-# Python 3
-python -m http.server 8000
+  2. Open the project in a web server. You can use any of these methods:
 
-# Python 2
-python -m SimpleHTTPServer 8000
-```
 
-Using Node.js:
+  Using Python:
 
-```shellscript
-# Install http-server if you haven't already
-npm install -g http-server
+  ```shellscript
+  # Python 3
+  python -m http.server 8000
 
-# Run the server
-http-server -p 8000
-```
+  # Python 2
+  python -m SimpleHTTPServer 8000
+  ```
+
+  Using Node.js:
+
+  ```shellscript
+  # Install http-server if you haven't already
+  npm install -g http-server
+
+  # Run the server
+  http-server -p 8000
+  ```
 
 3. Open your browser and navigate to `http://localhost:8000`
+
+
 
 
 ## 📖 Usage Guide
