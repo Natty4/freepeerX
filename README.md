@@ -167,7 +167,7 @@
   - Modern web browser with JavaScript enabled
   - Internet connection for map tiles and P2P communication
 
-  </details>
+</details>
 <details>
   <summary>Local Setup</summary>
 
@@ -205,6 +205,8 @@
   ```
 
 3. Open your browser and navigate to `http://localhost:8000`
+
+</details>
 
 
 
