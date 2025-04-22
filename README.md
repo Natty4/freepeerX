@@ -16,6 +16,7 @@
 - [Architecture](#-architecture)
 - [P2P Communication](#-p2p-communication)
 - [Contributing](#-contributing)
+- [Call](#call) 🤙
 - [License](#-license)
 
 
@@ -378,22 +379,25 @@ Contributions are welcome! Here's how you can contribute:
 - Test P2P functionality thoroughly
 
 
+## Call
+  If you're interested in contributing to the project, please feel free to reach out. I'm looking for collaborators who are passionate about P2P technology and want to help build a better ride-hailing experience as well the P2P communication. Whether you're a developer, designer, or just someone with great ideas, your input is welcome!
+
+
+## Note
+  This project is a proof of concept and is not intended for production use. It highlights the potential of P2P technology in the ride-hailing industry. The app is fully built using V0. I just added some features and modified the code a little bit. While the full P2P communication is still in progress (no worries, the app works with simulated drivers for now), so I continue working on and refining this functionality. The app is fully functional and can be used to demonstrate the concept of P2P ride-hailing.
+
+
+
 ## 📄 License
 
 This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Note
-  This project is a proof of concept and is not intended for production use. It highlights the potential of P2P technology in the ride-hailing industry. The app is fully built using V0. I just added some features and modified the code a little bit. While the full P2P communication is still in progress (no worries, the app works with simulated drivers for now), so I continue working on and refining this functionality. The app is fully functional and can be used to demonstrate the concept of P2P ride-hailing.
-
-## Call to contribute
-  <a href="#">
-  If you're interested in contributing to the project, please feel free to reach out. I'm looking for collaborators who are passionate about P2P technology and want to help build a better ride-hailing experience as well the P2P communication. Whether you're a developer, designer, or just someone with great ideas, your input is welcome!
-  </a>
+  
 
 <div>
-Built with ❤️ •
+Built with 💙   •
   <a href="https://github.com/natty4/freepeerX">GitHub</a> •
   <a href="https://freepeerX.vercel.app/">Website</a> •
   <a href="#">Contact</a>
