@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>FreePeerX - Meter Taxi App</title>
+   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <!-- Add PeerJS library -->
+   <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+</head>
+<body>
+   <button id="sidebar-toggle" class="sidebar-toggle">
+       <i class="fas fa-user-plus"></i>
+   </button>
+
+   <!-- Add the sidebar after the sidebar toggle button -->
+   <div id="sidebar" class="sidebar">
+       <div class="sidebar-header">
+           <h3>Driver Registration</h3>
+           <button id="close-sidebar" class="icon-btn">
+               <i class="fas fa-times"></i>
+           </button>
+       </div>
+       <div class="sidebar-content">
+           <form id="driver-registration-form">
+               <div class="sidebar-form-group">
+                   <label for="driver-name">Full Name</label>
+                   <input type="text" id="driver-name" name="driver-name" required>
+               </div>
+               <div class="sidebar-form-group">
+                   <label for="car-type">Car Type</label>
+                   <input type="text" id="car-type" name="car-type" required>
+               </div>
+               <div class="sidebar-form-group">
+                   <label for="car-color">Car Color</label>
+                   <input type="text" id="car-color" name="car-color" required>
+               </div>
+               <div class="sidebar-form-group">
+                   <label for="driver-city">City</label>
+                   <input type="text" id="driver-city" name="driver-city" required>
+               </div>
+               <div class="sidebar-form-group">
+                   <div class="checkbox-container">
+                       <input type="checkbox" id="remember-me" name="remember-me">
+                       <label for="remember-me">Remember Me</label>
+                   </div>
+               </div>
+               <button type="submit" class="primary-btn">Register</button>
+           </form>
+           <div class="driver-status">
+               <span class="online-status online"></span>
+               <span>You are currently online</span>
+           </div>
+       </div>
+   </div>
+
+   <div class="app-container">
+       <!-- Splash Screen with P2P Animation -->
+       <div id="splash-screen" class="screen active">
+           <div class="p2p-animation">
+               <div class="stars"></div>
+               <div class="city-skyline">
+                   <div class="buildings"></div>
+               </div>
+               <div class="connection-lines">
+                   <div class="connection-line line1"></div>
+                   <div class="connection-line line2"></div>
+                   <div class="connection-line line3"></div>
+               </div>
+               <div class="road">
+                   <div class="car car1">
+                       <div class="passenger"></div>
+                   </div>
+                   <div class="car car2">
+                       <div class="passenger"></div>
+                   </div>
+                   <div class="car car3">
+                       <div class="passenger"></div>
+                   </div>
+               </div>
+               <div class="data-packets">
+                   <div class="packet packet1"></div>
+                   <div class="packet packet2"></div>
+                   <div class="packet packet3"></div>
+               </div>
+               <div class="location-pins">
+                   <div class="pin pin1"></div>
+                   <div class="pin pin2"></div>
+                   <div class="pin pin3"></div>
+               </div>
+           </div>
+           
+           <!-- Video fallback for browsers that support it -->
+           <video id="bg-video" autoplay muted loop playsinline>
+               <source src="https://assets.mixkit.co/videos/preview/mixkit-driving-through-a-city-at-night-34573-large.mp4" type="video/mp4">
+           </video>
+           
+           <div class="splash-content">
+               <h1>FreePeerX</h1>
+               <div class="logo">
+                   <i class="fas fa-taxi"></i>
+               </div>
+               <p>Your P2P Meter Taxi Solution</p>
+               <div class="p2p-tagline">
+                   <span>Direct Driver-to-Passenger Connection</span>
+                   <div class="p2p-icon">
+                       <i class="fas fa-user"></i>
+                       <div class="p2p-connection-line"></div>
+                       <i class="fas fa-car"></i>
+                   </div>
+                   <span>No Middleman • Lower Fees • Faster Service</span>
+               </div>
+               <button id="get-started-btn" class="primary-btn">Get Started</button>
+           </div>
+       </div>
+
+       <!-- User Type Selection Screen -->
+       <div id="user-type-screen" class="screen">
+           <div class="screen-content">
+               <h2>I want to use FreePeerX as a:</h2>
+               <div class="user-type-buttons">
+                   <button id="passenger-btn" class="primary-btn user-type-btn">
+                       <i class="fas fa-user"></i>
+                       <span>Passenger</span>
+                   </button>
+                   <button id="driver-btn" class="primary-btn user-type-btn">
+                       <i class="fas fa-car"></i>
+                       <span>Driver</span>
+                   </button>
+               </div>
+           </div>
+       </div>
+
+       <!-- Driver Dashboard Screen -->
+       <div id="driver-dashboard-screen" class="screen">
+           <div class="screen-header">
+               <h2>Driver Dashboard</h2>
+               <div class="driver-controls">
+                   <button id="driver-status-toggle" class="secondary-btn">
+                       <span class="online-status online"></span>
+                       <span id="driver-status-text">Online</span>
+                   </button>
+                   <button id="driver-profile-btn" class="icon-btn">
+                       <i class="fas fa-user-cog"></i>
+                   </button>
+               </div>
+           </div>
+           <div id="driver-map" class="map-container"></div>
+           <div class="driver-stats">
+               <div class="stat-card">
+                   <div class="stat-title">Today's Earnings</div>
+                   <div class="stat-value">$0.00</div>
+               </div>
+               <div class="stat-card">
+                   <div class="stat-title">Completed Rides</div>
+                   <div class="stat-value">0</div>
+               </div>
+               <div class="stat-card">
+                   <div class="stat-title">Rating</div>
+                   <div class="stat-value">
+                       <i class="fas fa-star"></i>
+                       <span>5.0</span>
+                   </div>
+               </div>
+           </div>
+           <div class="driver-requests" id="driver-requests">
+               <h3>Ride Requests</h3>
+               <div class="no-requests-message">No active requests</div>
+           </div>
+       </div>
+
+       <!-- User Code Screen -->
+       <div id="user-code-screen" class="screen">
+           <div class="screen-content">
+               <h2>Your Unique Code</h2>
+               <div class="code-display">
+                   <span id="user-code">------</span>
+               </div>
+               <p>Share this code with your driver to start the ride</p>
+               <button id="reset-code-btn" class="secondary-btn">Reset Code</button>
+               <button id="find-driver-btn" class="primary-btn">Find a Driver</button>
+           </div>
+       </div>
+
+       <!-- Driver Selection Screen -->
+       <div id="driver-selection-screen" class="screen">
+           <div class="screen-header">
+               <button id="back-to-code-btn" class="icon-btn"><i class="fas fa-arrow-left"></i></button>
+               <h2>Available Drivers</h2>
+           </div>
+           <div id="drivers-map" class="map-container"></div>
+           <div class="drivers-list" id="drivers-list">
+               <!-- Drivers will be populated here -->
+               <div class="loading-drivers">
+                   <i class="fas fa-spinner fa-spin"></i>
+                   <span>Searching for nearby drivers...</span>
+               </div>
+           </div>
+       </div>
+
+       <!-- Pairing Screen -->
+       <div id="pairing-screen" class="screen">
+           <div class="screen-content">
+               <h2>Enter Driver's Code</h2>
+               <p>Your driver will provide a 6-digit code to start the ride</p>
+               <div class="code-input-container">
+                   <input type="text" maxlength="6" id="driver-code-input" placeholder="Enter 6-digit code" class="code-input">
+               </div>
+               <div class="error-message" id="pairing-error"></div>
+               <button id="verify-code-btn" class="primary-btn">Verify & Start Ride</button>
+               <button id="back-to-drivers-btn" class="secondary-btn">Back to Drivers</button>
+           </div>
+       </div>
+
+       <!-- Ride Screen -->
+       <div id="ride-screen" class="screen">
+           <div class="ride-header">
+               <div class="driver-info" id="current-driver-info">
+                   <!-- Driver info will be populated here -->
+               </div>
+               <button id="end-ride-btn" class="danger-btn">End Ride</button>
+           </div>
+           
+           <div id="ride-map" class="map-container"></div>
+           
+           <div class="meter-container">
+               <div class="meter-section">
+                   <div class="meter-row">
+                       <div class="meter-label">Distance:</div>
+                       <div class="meter-value" id="distance-value">0.00 km</div>
+                   </div>
+                   <div class="meter-row">
+                       <div class="meter-label">Time:</div>
+                       <div class="meter-value" id="time-value">00:00</div>
+                   </div>
+                   <div class="meter-row">
+                       <div class="meter-label">Current Fare:</div>
+                       <div class="meter-value fare" id="fare-value">$0.00</div>
+                   </div>
+               </div>
+               <div class="fare-details" id="fare-details">
+                   <div class="fare-row">
+                       <span>Base Fare:</span>
+                       <span id="base-fare-value">$5.00</span>
+                   </div>
+                   <div class="fare-row">
+                       <span>Distance Rate:</span>
+                       <span id="distance-rate-value">$2.00/km</span>
+                   </div>
+                   <div class="fare-row">
+                       <span>Time Rate:</span>
+                       <span id="time-rate-value">$0.50/min</span>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Ride Summary Screen -->
+       <div id="summary-screen" class="screen">
+           <div class="screen-content">
+               <h2>Ride Summary</h2>
+               <div class="summary-container">
+                   <div class="summary-row">
+                       <span>Total Distance:</span>
+                       <span id="summary-distance">0.00 km</span>
+                   </div>
+                   <div class="summary-row">
+                       <span>Total Time:</span>
+                       <span id="summary-time">00:00</span>
+                   </div>
+                   <div class="summary-row">
+                       <span>Base Fare:</span>
+                       <span id="summary-base-fare">$5.00</span>
+                   </div>
+                   <div class="summary-row">
+                       <span>Distance Charge:</span>
+                       <span id="summary-distance-charge">$0.00</span>
+                   </div>
+                   <div class="summary-row">
+                       <span>Time Charge:</span>
+                       <span id="summary-time-charge">$0.00</span>
+                   </div>
+                   <div class="summary-row total">
+                       <span>Total Fare:</span>
+                       <span id="summary-total-fare">$5.00</span>
+                   </div>
+               </div>
+               <div class="summary-actions">
+                   <button id="share-ride-btn" class="secondary-btn"><i class="fas fa-share-alt"></i> Share</button>
+                   <button id="new-ride-btn" class="primary-btn">New Ride</button>
+               </div>
+           </div>
+       </div>
+   </div>
+
+   <!-- Scripts -->
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+   <!-- Only include the single consolidated JavaScript file -->
+   <script src="js/app.js"></script>
+   
+   <!-- Add script to handle video fallback -->
+   <script>
+       document.addEventListener('DOMContentLoaded', function() {
+           const video = document.getElementById('bg-video');
+           const animation = document.querySelector('.p2p-animation');
+           
+           // Check if video can play
+           if (video.canPlayType) {
+               video.style.display = 'block';
+               animation.style.opacity = '0.5'; // Make animation semi-transparent over video
+           } else {
+               video.style.display = 'none';
+               animation.style.opacity = '1'; // Full opacity for animation if video can't play
+           }
+           
+           // Add event listener to toggle video/animation on click
+           document.getElementById('splash-screen').addEventListener('click', function(e) {
+               // Don't toggle if clicking on buttons or interactive elements
+               if (e.target.tagName !== 'BUTTON' && !e.target.closest('.logo') && !e.target.closest('.p2p-icon')) {
+                   if (video.style.display === 'none') {
+                       video.style.display = 'block';
+                       animation.style.opacity = '0.5';
+                   } else {
+                       video.style.display = 'none';
+                       animation.style.opacity = '1';
+                   }
+               }
+           });
+       });
+   </script>
+</body>
+</html>

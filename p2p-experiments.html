@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P Chat</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+    .user-list { list-style-type: none; padding: 0; }
+    .user-list li { margin: 10px 0; background: #ddd; padding: 10px; border-radius: 5px; }
+    button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+  </style>
+</head>
+<body>
+
+  <h2>P2P Chat</h2>
+  <button id="becomeType1">Become Type 1</button>
+  <h3>Available Type 1 Users:</h3>
+  <ul id="userList" class="user-list"></ul>
+
+  <script src="https://cdn.jsdelivr.net/npm/peerjs@1.3.1/dist/peerjs.min.js"></script>
+  <script>
+    const peer = new Peer({
+      host: 'your-server-ip-or-domain',  // Replace with your own server or keep default settings
+      port: 9000,
+      path: '/myapp',
+      secure: false, // Set true if you're using HTTPS
+    });
+
+    const userList = document.getElementById("userList");
+    const becomeType1Btn = document.getElementById("becomeType1");
+    let peerId = null;
+
+    peer.on('open', id => {
+      peerId = id;
+      console.log(`My peer ID is: ${peerId}`);
+      updateUserList();
+    });
+
+    // When the user becomes Type 1, update the list and broadcast
+    becomeType1Btn.addEventListener("click", () => {
+      localStorage.setItem("type1User", peerId);
+      updateUserList();
+      notifyOtherPeers();
+    });
+
+    // Notify other peers about this Type 1 user
+    function notifyOtherPeers() {
+      peer.listAllPeers(peers => {
+        peers.forEach(peerId => {
+          if (peerId !== peer.id) {
+            const conn = peer.connect(peerId);
+            conn.on('open', () => {
+              conn.send({ type: 'newType1User', peerId });
+            });
+          }
+        });
+      });
+    }
+
+    // Listen for updates from other peers
+    peer.on('connection', conn => {
+      conn.on('data', data => {
+        if (data.type === 'newType1User') {
+          const existingUsers = JSON.parse(localStorage.getItem("type1Users") || "[]");
+          if (!existingUsers.includes(data.peerId)) {
+            existingUsers.push(data.peerId);
+            localStorage.setItem("type1Users", JSON.stringify(existingUsers));
+            updateUserList();
+          }
+        }
+      });
+    });
+
+    // Update the user list on the page
+    function updateUserList() {
+      const type1Users = JSON.parse(localStorage.getItem("type1Users") || "[]");
+      userList.innerHTML = '';
+      type1Users.forEach(id => {
+        const li = document.createElement("li");
+        li.textContent = `Peer ID: ${id}`;
+        userList.appendChild(li);
+      });
+    }
+
+    // When the page reloads, update the list of Type 1 users
+    window.addEventListener("storage", updateUserList);
+  </script>
+</body>
+</html>

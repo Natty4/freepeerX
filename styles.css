@@ -1,0 +1,1235 @@
+/* Update the root variables to create a dark theme with modern green accents */
+:root {
+  --primary-color: #2ecc71; /* Modern green as primary color */
+  --primary-dark: #27ae60; /* Darker shade of green */
+  --primary-light: #7bed9f; /* Lighter shade of green for accents */
+  --secondary-color: #1abc9c; /* Teal-green as secondary color */
+  --dark-color: #121212; /* Very dark background */
+  --medium-dark: #1e1e1e; /* Slightly lighter dark for cards */
+  --light-dark: #2d2d2d; /* Even lighter dark for inputs, etc. */
+  --light-color: #e0e0e0; /* Light text color */
+  --danger-color: #ff5252; /* Bright red for errors/danger */
+  --success-color: #2ecc71; /* Green for success */
+  --gray-color: #9e9e9e; /* Medium gray */
+  --light-gray: #424242; /* Darker gray for backgrounds */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Darker shadow */
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Update body background and text color */
+body {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  line-height: 1.6;
+}
+
+.app-container {
+  position: relative;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  padding-left: 70px;
+}
+
+/* Button Styles */
+button {
+  cursor: pointer;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: var(--transition);
+  outline: none;
+}
+
+/* Update button styles */
+.primary-btn {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-dark);
+  box-shadow: 0 6px 14px rgba(46, 204, 113, 0.4);
+}
+
+.secondary-btn {
+  background-color: var(--light-dark);
+  color: var(--light-color);
+  border: 1px solid var(--gray-color);
+}
+
+.secondary-btn:hover {
+  background-color: var(--medium-dark);
+}
+
+.danger-btn {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.danger-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Update icon button */
+.icon-btn {
+  color: var(--light-color);
+  background: none;
+  padding: 8px;
+  font-size: 1.2rem;
+}
+
+/* Update screen background */
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: var(--dark-color);
+}
+
+.screen.active {
+  display: block;
+}
+
+.screen-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 20px;
+}
+
+/* Update screen header */
+.screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: var(--medium-dark);
+  box-shadow: var(--shadow);
+}
+
+.screen-header h2 {
+  margin-left: 15px;
+}
+
+/* Update splash screen */
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  background-color: rgba(18, 18, 18, 0.1);
+  padding: 30px;
+  margin: 0 auto;
+}
+
+/* Update splash screen */
+.splash-content h1 {
+  color: var(--primary-color);
+  font-size: 3rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Update splash screen */
+.logo {
+  color: var(--primary-color);
+  font-size: 5rem;
+  margin: 20px 0;
+  text-shadow: 0 2px 10px rgba(46, 204, 113, 0.4);
+}
+
+/* User Type Selection Screen */
+.user-type-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.user-type-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+}
+
+.user-type-btn i {
+  font-size: 1.5rem;
+}
+
+/* Driver Dashboard */
+.driver-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Update driver dashboard */
+.driver-stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: var(--medium-dark);
+  box-shadow: var(--shadow);
+}
+
+/* Update driver dashboard */
+.stat-card {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Update driver dashboard */
+.stat-title {
+  font-size: 0.9rem;
+  color: var(--gray-color);
+}
+
+/* Update driver dashboard */
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--light-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/* Update driver dashboard */
+.stat-value i {
+  color: var(--primary-color);
+}
+
+/* Update driver dashboard */
+.driver-requests {
+  padding: 15px;
+  max-height: 30vh;
+  overflow-y: auto;
+}
+
+/* Update driver dashboard */
+.driver-requests h3 {
+  margin-bottom: 10px;
+}
+
+/* Update driver dashboard */
+.no-requests-message {
+  text-align: center;
+  color: var(--gray-color);
+  padding: 20px;
+}
+
+/* Update driver dashboard */
+.request-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: var(--medium-dark);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.request-info {
+  flex: 1;
+}
+
+.request-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Update code display */
+.code-display {
+  background-color: var(--light-dark);
+  padding: 20px 40px;
+  border-radius: var(--border-radius);
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+/* Update code display */
+.code-input-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px 0;
+}
+
+/* Update code display */
+.code-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 5px;
+  border: 2px solid var(--primary-dark);
+  border-radius: var(--border-radius);
+  background-color: var(--light-dark);
+  color: var(--light-color);
+}
+
+.error-message {
+  color: var(--danger-color);
+  font-size: 0.9rem;
+  height: 20px;
+}
+
+/* Map Styles */
+.map-container {
+  width: 100%;
+  height: 50vh;
+  z-index: 1;
+  border-top: 2px solid var(--primary-dark);
+  border-bottom: 2px solid var(--primary-dark);
+}
+
+/* Drivers List */
+.drivers-list {
+  padding: 15px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+/* Add these styles for the loading and mock drivers messages */
+
+/* Update loading drivers */
+.loading-drivers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  color: var(--gray-color);
+}
+
+/* Update loading drivers */
+.loading-drivers i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+/* Update loading drivers */
+.no-drivers-message {
+  padding: 20px;
+  text-align: center;
+  color: var(--gray-color);
+}
+
+.no-drivers-message button {
+  margin-top: 15px;
+}
+
+/* Update mock drivers message */
+.mock-drivers-message {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: var(--light-dark);
+  border-radius: var(--border-radius);
+  color: var(--gray-color);
+  font-size: 0.9rem;
+}
+
+/* Update mock drivers message */
+.mock-drivers-message i {
+  color: var(--primary-color);
+  margin-right: 5px;
+}
+
+/* Update driver cards */
+.driver-card {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: var(--medium-dark);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: var(--transition);
+  border-left: 3px solid var(--primary-color);
+}
+
+.driver-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border-left: 3px solid var(--primary-light);
+}
+
+/* Update driver cards */
+.driver-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--light-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+/* Update driver cards */
+.driver-info {
+  flex: 1;
+}
+
+/* Update driver cards */
+.driver-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Update driver cards */
+.driver-details {
+  color: var(--gray-color);
+  font-size: 0.9rem;
+}
+
+/* Update driver cards */
+.driver-rating {
+  display: flex;
+  align-items: center;
+  color: var(--primary-color);
+}
+
+/* Update driver cards */
+.driver-rating i {
+  margin-right: 5px;
+}
+
+.driver-meta {
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+/* Update ride screen */
+.ride-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--medium-dark);
+  box-shadow: var(--shadow);
+}
+
+/* Update ride screen */
+.meter-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--medium-dark);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  border-top: 2px solid var(--primary-dark);
+}
+
+.meter-section {
+  padding: 15px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.meter-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.meter-row:last-child {
+  margin-bottom: 0;
+}
+
+.meter-label {
+  font-weight: 600;
+}
+
+.meter-value {
+  font-weight: 600;
+}
+
+/* Update ride screen */
+.meter-value.fare {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.fare-details {
+  padding: 15px;
+  background-color: var(--light-dark);
+  font-size: 0.9rem;
+}
+
+.fare-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+/* Update summary screen */
+.summary-container {
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--medium-dark);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin: 20px 0;
+  border-top: 3px solid var(--primary-color);
+}
+
+/* Update summary screen */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--light-dark);
+}
+
+.summary-row.total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  border-bottom: none;
+  padding-top: 20px;
+}
+
+.summary-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Add these styles for the sidebar */
+/* Update sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background-color: var(--medium-dark);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Update sidebar */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.sidebar-content {
+  padding: 20px;
+}
+
+.sidebar-form-group {
+  margin-bottom: 15px;
+}
+
+.sidebar-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+/* Update sidebar */
+.sidebar-form-group input,
+.sidebar-form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--primary-dark);
+  border-radius: var(--border-radius);
+  background-color: var(--light-dark);
+  color: var(--light-color);
+}
+
+.sidebar-form-group .checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-form-group .checkbox-container input {
+  width: auto;
+}
+
+/* Update sidebar */
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.online-status {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.online-status.online {
+  background-color: var(--success-color);
+}
+
+.online-status.offline {
+  background-color: var(--danger-color);
+}
+
+.driver-status {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--light-dark);
+  border-radius: var(--border-radius);
+}
+
+/* Connection Status Styles */
+/* Update connection status styles */
+.connection-status-message {
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+}
+
+/* Update connection status styles */
+.connection-error {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Update connection status styles */
+.connection-warning {
+  background-color: rgba(241, 196, 15, 0.2);
+  color: #f39c12;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Update connection status styles */
+.connection-success {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.real-driver-badge,
+.mock-driver-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.real-driver-badge {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.mock-driver-badge {
+  background-color: var(--gray-color);
+  color: white;
+}
+
+/* Add luxury touches */
+h1,
+h2,
+h3 {
+  letter-spacing: 0.5px;
+}
+
+/* P2P Animation Styles */
+.p2p-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  perspective: 1000px;
+}
+
+/* Background video */
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  display: none; /* Hidden by default, shown via JS if supported */
+  opacity: 0.6;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background-image: radial-gradient(1px 1px at 20px 30px, var(--primary-light), transparent),
+    radial-gradient(1px 1px at 40px 70px, var(--primary-light), transparent),
+    radial-gradient(1px 1px at 50px 160px, var(--primary-light), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--primary-light), transparent),
+    radial-gradient(1px 1px at 130px 80px, var(--primary-light), transparent),
+    radial-gradient(1px 1px at 160px 120px, var(--primary-light), transparent),
+    radial-gradient(2px 2px at 200px 30px, var(--primary-color), transparent),
+    radial-gradient(2px 2px at 300px 160px, var(--primary-color), transparent),
+    radial-gradient(2px 2px at 400px 60px, var(--primary-color), transparent);
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+.city-skyline {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25vh;
+  background: linear-gradient(to top, var(--dark-color), transparent);
+}
+
+.buildings {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 20vh;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(39, 174, 96, 0.2) 0px,
+    rgba(39, 174, 96, 0.2) 40px,
+    rgba(39, 174, 96, 0.3) 40px,
+    rgba(39, 174, 96, 0.3) 80px,
+    rgba(39, 174, 96, 0.4) 80px,
+    rgba(39, 174, 96, 0.4) 120px,
+    rgba(39, 174, 96, 0.3) 120px,
+    rgba(39, 174, 96, 0.3) 160px,
+    rgba(39, 174, 96, 0.2) 160px,
+    rgba(39, 174, 96, 0.2) 200px
+  );
+  animation: moveBuildings 30s linear infinite;
+}
+
+.buildings:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to top, transparent 0%, transparent 60%, var(--dark-color) 100%),
+    repeating-linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 30px,
+      var(--primary-dark) 30px,
+      var(--primary-dark) 32px,
+      transparent 32px,
+      transparent 60px,
+      var(--primary-dark) 60px,
+      var(--primary-dark) 62px,
+      transparent 62px,
+      transparent 90px
+    );
+}
+
+.road {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5vh;
+  background-color: #333;
+  border-top: 2px solid var(--primary-color);
+}
+
+.road:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    var(--primary-color) 0px,
+    var(--primary-color) 30px,
+    transparent 30px,
+    transparent 60px
+  );
+  background-size: 60px 2px;
+  animation: moveDashes 2s linear infinite;
+}
+
+/* P2P Connection Lines */
+.connection-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.connection-line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  opacity: 0.6;
+  animation: pulseLine 3s infinite;
+}
+
+.line1 {
+  top: 40%;
+  left: 20%;
+  width: 60%;
+  transform: rotate(15deg);
+  animation-delay: 0s;
+}
+
+.line2 {
+  top: 60%;
+  left: 30%;
+  width: 40%;
+  transform: rotate(-10deg);
+  animation-delay: 1s;
+}
+
+.line3 {
+  top: 30%;
+  left: 10%;
+  width: 80%;
+  transform: rotate(5deg);
+  animation-delay: 2s;
+}
+
+/* Cars with passengers */
+.car {
+  position: absolute;
+  bottom: 1vh;
+  width: 60px;
+  height: 30px;
+  background-color: var(--primary-color);
+  border-radius: 8px 12px 0 0;
+  box-shadow: 0 2px 10px rgba(46, 204, 113, 0.5);
+  animation: moveCar 8s linear infinite;
+  z-index: 2;
+}
+
+.car:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  width: 30px;
+  height: 12px;
+  background-color: var(--primary-light);
+  border-radius: 10px 10px 0 0;
+}
+
+.car:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 12px;
+  height: 6px;
+  background-color: #333;
+  border-radius: 50%;
+  box-shadow: 28px 0 0 #333;
+}
+
+.passenger {
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--light-color);
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.car1 {
+  left: -60px;
+  animation: moveCar 8s linear infinite;
+}
+
+.car2 {
+  left: 30%;
+  animation: moveCar 12s linear infinite;
+  animation-delay: 2s;
+  transform: scaleX(-1);
+  bottom: 3vh;
+  background-color: var(--secondary-color);
+}
+
+.car3 {
+  left: 60%;
+  animation: moveCar 10s linear infinite;
+  animation-delay: 4s;
+  background-color: var(--primary-dark);
+}
+
+/* Data packets animation */
+.data-packets {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.packet {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary-color);
+  animation: movePacket 4s linear infinite;
+}
+
+.packet1 {
+  top: 40%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.packet2 {
+  top: 60%;
+  left: 30%;
+  animation-delay: 1.5s;
+}
+
+.packet3 {
+  top: 30%;
+  left: 10%;
+  animation-delay: 3s;
+}
+
+/* Location pins */
+.location-pins {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.pin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  animation: pulsePin 2s infinite;
+}
+
+.pin:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--dark-color);
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+}
+
+.pin1 {
+  top: 30%;
+  left: 20%;
+  background-color: var(--primary-color);
+  animation-delay: 0s;
+}
+
+.pin2 {
+  top: 50%;
+  left: 70%;
+  background-color: var(--secondary-color);
+  animation-delay: 0.7s;
+}
+
+.pin3 {
+  top: 70%;
+  left: 40%;
+  background-color: var(--primary-light);
+  animation-delay: 1.4s;
+}
+
+/* P2P tagline and icon */
+.p2p-tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+  font-size: 1.1rem;
+  color: var(--light-color);
+}
+
+.p2p-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+  font-size: 1.5rem;
+}
+
+.p2p-connection-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  position: relative;
+  animation: pulseLine 2s infinite;
+}
+
+.p2p-connection-line:before,
+.p2p-connection-line:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  top: -2.5px;
+  animation: movePacket 2s linear infinite;
+}
+
+.p2p-connection-line:before {
+  left: 0;
+}
+
+.p2p-connection-line:after {
+  right: 0;
+  animation-delay: 1s;
+}
+
+/* Animation keyframes */
+@keyframes moveDashes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes moveCar {
+  0% {
+    left: -60px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes moveBuildings {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseLine {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes movePacket {
+  0% {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, -20px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulsePin {
+  0% {
+    transform: rotate(-45deg) scale(1);
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.5);
+  }
+  70% {
+    transform: rotate(-45deg) scale(1.1);
+    box-shadow: 0 0 0 10px rgba(46, 204, 113, 0);
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .code-display {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+  }
+
+  .splash-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .logo {
+    font-size: 4rem;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .driver-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .p2p-animation {
+    height: 30vh;
+  }
+
+  .buildings {
+    height: 15vh;
+  }
+
+  .p2p-tagline {
+    font-size: 0.9rem;
+  }
+
+  .p2p-connection-line {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    padding: 10px 20px;
+  }
+
+  .code-display {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+
+  .code-input {
+    padding: 12px;
+    font-size: 1.2rem;
+  }
+
+  .splash-content h1 {
+    font-size: 2rem;
+  }
+
+  .logo {
+    font-size: 3rem;
+  }
+
+  .p2p-animation {
+    height: 25vh;
+  }
+
+  .buildings {
+    height: 12vh;
+  }
+
+  .p2p-tagline {
+    font-size: 0.8rem;
+  }
+
+  .p2p-connection-line {
+    width: 30px;
+  }
+}
