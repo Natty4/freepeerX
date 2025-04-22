@@ -193,94 +193,76 @@ http-server -p 8000
 
 ## 📖 Usage Guide
 
-### For Passengers
+<details>
+  <summary>For Passengers</summary>
 
-1. **Start a Ride**:
+  ### 1. Start a Ride:
 
-1. Click "Get Started" on the landing page
-2. Select "Passenger"
-3. Note your unique code (you can share this with a specific driver if desired)
-4. Click "Find a Driver"
+  1. Click "Get Started" on the landing page
+  2. Select "Passenger"
+  3. Note your unique code (you can share this with a specific driver if desired)
+  4. Click "Find a Driver"
 
+  ### 2. Select a Driver:
 
+  1. Browse available drivers on the map
+  2. Click on a driver card to select them
+  3. For real P2P drivers, a ride request will be sent automatically
+  4. For simulated drivers, you'll proceed directly to the pairing screen
 
-2. **Select a Driver**:
+  ### 3. Pair with Driver:
 
-1. Browse available drivers on the map
-2. Click on a driver card to select them
-3. For real P2P drivers, a ride request will be sent automatically
-4. For simulated drivers, you'll proceed directly to the pairing screen
+  1. Enter the 6-digit code provided by the driver
+  2. Click "Verify & Start Ride"
 
+  ### 4. During the Ride:
 
+  1. Monitor your route on the map
+  2. Watch the fare calculation in real-time
+  3. Click "End Ride" when you reach your destination
 
-3. **Pair with Driver**:
+  ### 5. After the Ride:
 
-1. Enter the 6-digit code provided by the driver
-2. Click "Verify & Start Ride"
+  1. Review the fare breakdown
+  2. Share ride details if desired
+  3. Start a new ride or exit the application
 
+</details>
 
+<details>
+  <summary>For Drivers</summary>
 
-4. **During the Ride**:
+  ### 1. Register as a Driver:
 
-1. Monitor your route on the map
-2. Watch the fare calculation in real-time
-3. Click "End Ride" when you reach your destination
+  1. Click "Get Started" on the landing page
+  2. Select "Driver"
+  3. Fill in your details in the registration form
+  4. Check "Remember Me" if you want to save your information
+  5. Click "Register"
 
+  ### 2. Manage Your Availability:
 
+  1. Use the "Online/Offline" toggle to control your availability
+  2. When online, your location will be broadcast to nearby passengers
 
-5. **After the Ride**:
+  ### 3. Accept Ride Requests:
 
-1. Review the fare breakdown
-2. Share ride details if desired
-3. Start a new ride or exit the application
+  1. Ride requests will appear in your dashboard
+  2. Review passenger details and distance
+  3. Accept or decline the request
+  4. If accepted, note the generated code to share with the passenger
 
+  ### 4. During the Ride:
 
+  1. Monitor your route on the map
+  2. The fare is calculated automatically based on distance and time
 
+  ### 5. End the Ride:
 
+  1. The ride ends when the passenger clicks "End Ride"
+  2. Your earnings will be updated in your dashboard
 
-### For Drivers
-
-1. **Register as a Driver**:
-
-1. Click "Get Started" on the landing page
-2. Select "Driver"
-3. Fill in your details in the registration form
-4. Check "Remember Me" if you want to save your information
-5. Click "Register"
-
-
-
-2. **Manage Your Availability**:
-
-1. Use the "Online/Offline" toggle to control your availability
-2. When online, your location will be broadcast to nearby passengers
-
-
-
-3. **Accept Ride Requests**:
-
-1. Ride requests will appear in your dashboard
-2. Review passenger details and distance
-3. Accept or decline the request
-4. If accepted, note the generated code to share with the passenger
-
-
-
-4. **During the Ride**:
-
-1. Monitor your route on the map
-2. The fare is calculated automatically based on distance and time
-
-
-
-5. **End the Ride**:
-
-1. The ride ends when the passenger clicks "End Ride"
-2. Your earnings will be updated in your dashboard
-
-
-
-
+</details>
 
 ## 🏗 Architecture
 
@@ -334,27 +316,33 @@ freepeerx/
 └── README.md           # Project documentation
 ```
 
-### Development Workflow
+## 🔧 Development Workflow
 
-1. **Local Development**:
+<details>
+  <summary>Local Development</summary>
 
-1. Make changes to the HTML, CSS, or JavaScript files
-2. Refresh your browser to see changes
+  1. Make changes to the HTML, CSS, or JavaScript files
+  2. Refresh your browser to see changes
 
+</details>
 
+<details>
+  <summary>Testing P2P Functionality</summary>
 
-2. **Testing P2P Functionality**:
+  1. Open two browser windows to simulate a driver and passenger
+  2. Register as a driver in one window
+  3. Connect as a passenger in the other window
 
-1. Open two browser windows to simulate a driver and passenger
-2. Register as a driver in one window
-3. Connect as a passenger in the other window
+</details>
 
+<details>
+  <summary>Simulated Mode</summary>
 
+  1. Set `CONFIG.p2p.enabled = false` in app.js to use simulated drivers
+  2. This is useful for testing without a second device
 
-3. **Simulated Mode**:
+</details>
 
-1. Set `CONFIG.p2p.enabled = false` in app.js to use simulated drivers
-2. This is useful for testing without a second device
 
 
 
