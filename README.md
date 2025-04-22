@@ -2,7 +2,7 @@
 # FreePeerX 🤓
 <div>
 
-`<p>``<em>`Direct Driver-to-Passenger Connection • No Middleman • Lower Fees • Faster Service`</em>``</p>`
+<p><em>`Direct Driver-to-Passenger Connection • No Middleman • Lower Fees • Faster Service`</em></p>
 
 </div>FreePeerX is a revolutionary peer-to-peer meter taxi application that connects drivers and passengers directly without intermediaries. By leveraging WebRTC technology through PeerJS, FreePeerX eliminates the need for central servers to handle ride matching and fare calculation, resulting in lower fees and a more efficient service.
 
@@ -298,25 +298,19 @@ FreePeerX is built with a modular architecture that separates concerns into dist
 ### Data Flow
 
 ```mermaid
-graph TD
-    Selects -->|Passenger| Role
-    Role --> Passenger
-    Role --> Driver
-    Driver -->|Find Drivers| Real
-    Real -->|No Drivers| Request
-    Request -->|Select Driver| Generate
-    Generate -->|Code| Verify
-    Verify -->|Track Location| End
-    End -->|Ride Complete| User
-    User -->|App| Generate
-    User -->|Generate Code| Register
-    Register -->|P2P Discovery| P2P
-    P2P -->|Connection| Simulated
-    Simulated -->|Drivers| Real
-    Real -->|Driver Accepts| Code
-    Code -->|Start Ride| Calculate
-    Calculate -->|Fare| Summary
-
+Diagram.download-icon {
+            cursor: pointer;
+            transform-origin: center;
+        }
+        .download-icon .arrow-part {
+            transition: transform 0.35s cubic-bezier(0.35, 0.2, 0.14, 0.95);
+             transform-origin: center;
+        }
+        button:has(.download-icon):hover .download-icon .arrow-part, button:has(.download-icon):focus-visible .download-icon .arrow-part {
+          transform: translateY(-1.5px);
+        }
+        #mermaid-diagram-rf3b{font-family:var(--font-geist-sans);font-size:12px;fill:#000000;}#mermaid-diagram-rf3b .error-icon{fill:#552222;}#mermaid-diagram-rf3b .error-text{fill:#552222;stroke:#552222;}#mermaid-diagram-rf3b .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-rf3b .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-rf3b .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-rf3b .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-rf3b .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-rf3b .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-rf3b .marker{fill:#666;stroke:#666;}#mermaid-diagram-rf3b .marker.cross{stroke:#666;}#mermaid-diagram-rf3b svg{font-family:var(--font-geist-sans);font-size:12px;}#mermaid-diagram-rf3b p{margin:0;}#mermaid-diagram-rf3b .label{font-family:var(--font-geist-sans);color:#000000;}#mermaid-diagram-rf3b .cluster-label text{fill:#333;}#mermaid-diagram-rf3b .cluster-label span{color:#333;}#mermaid-diagram-rf3b .cluster-label span p{background-color:transparent;}#mermaid-diagram-rf3b .label text,#mermaid-diagram-rf3b span{fill:#000000;color:#000000;}#mermaid-diagram-rf3b .node rect,#mermaid-diagram-rf3b .node circle,#mermaid-diagram-rf3b .node ellipse,#mermaid-diagram-rf3b .node polygon,#mermaid-diagram-rf3b .node path{fill:#eee;stroke:#999;stroke-width:1px;}#mermaid-diagram-rf3b .rough-node .label text,#mermaid-diagram-rf3b .node .label text{text-anchor:middle;}#mermaid-diagram-rf3b .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-diagram-rf3b .node .label{text-align:center;}#mermaid-diagram-rf3b .node.clickable{cursor:pointer;}#mermaid-diagram-rf3b .arrowheadPath{fill:#333333;}#mermaid-diagram-rf3b .edgePath .path{stroke:#666;stroke-width:2.0px;}#mermaid-diagram-rf3b .flowchart-link{stroke:#666;fill:none;}#mermaid-diagram-rf3b .edgeLabel{background-color:white;text-align:center;}#mermaid-diagram-rf3b .edgeLabel p{background-color:white;}#mermaid-diagram-rf3b .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#mermaid-diagram-rf3b .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#mermaid-diagram-rf3b .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#mermaid-diagram-rf3b .cluster text{fill:#333;}#mermaid-diagram-rf3b .cluster span{color:#333;}#mermaid-diagram-rf3b div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:var(--font-geist-sans);font-size:12px;background:hsl(-160, 0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-diagram-rf3b .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#mermaid-diagram-rf3b .flowchart-link{stroke:hsl(var(--gray-400));stroke-width:1px;}#mermaid-diagram-rf3b .marker,#mermaid-diagram-rf3b marker,#mermaid-diagram-rf3b marker *{fill:hsl(var(--gray-400))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-rf3b .label,#mermaid-diagram-rf3b text,#mermaid-diagram-rf3b text>tspan{fill:hsl(var(--black))!important;color:hsl(var(--black))!important;}#mermaid-diagram-rf3b .background,#mermaid-diagram-rf3b rect.relationshipLabelBox{fill:hsl(var(--white))!important;}#mermaid-diagram-rf3b .entityBox,#mermaid-diagram-rf3b .attributeBoxEven{fill:hsl(var(--gray-150))!important;}#mermaid-diagram-rf3b .attributeBoxOdd{fill:hsl(var(--white))!important;}#mermaid-diagram-rf3b .label-container,#mermaid-diagram-rf3b rect.actor{fill:hsl(var(--white))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-rf3b line{stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-rf3b :root{--mermaid-font-family:var(--font-geist-sans);}Selects RolePassengerDriverFind DriversReal DriversNo DriversRequest RideSelect DriverGenerate CodeVerify CodeTrack LocationEnd RideUserAppGenerate CodeRegisterP2P DiscoveryP2P ConnectionSimulated DriversDriver AcceptsCode PairingStart RideCalculate FareSummary
+```
 
 ## 🔄 P2P Communication
 
