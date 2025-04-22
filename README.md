@@ -188,7 +188,94 @@ http-server -p 8000
 ```
 
 3. Open your browser and navigate to `http://localhost:8000`
-4. You should see the FreePeerX landing page with the animated cityscape
+
+
+## 📖 Usage Guide
+
+### For Passengers
+
+1. **Start a Ride**:
+
+1. Click "Get Started" on the landing page
+2. Select "Passenger"
+3. Note your unique code (you can share this with a specific driver if desired)
+4. Click "Find a Driver"
+
+
+
+2. **Select a Driver**:
+
+1. Browse available drivers on the map
+2. Click on a driver card to select them
+3. For real P2P drivers, a ride request will be sent automatically
+4. For simulated drivers, you'll proceed directly to the pairing screen
+
+
+
+3. **Pair with Driver**:
+
+1. Enter the 6-digit code provided by the driver
+2. Click "Verify & Start Ride"
+
+
+
+4. **During the Ride**:
+
+1. Monitor your route on the map
+2. Watch the fare calculation in real-time
+3. Click "End Ride" when you reach your destination
+
+
+
+5. **After the Ride**:
+
+1. Review the fare breakdown
+2. Share ride details if desired
+3. Start a new ride or exit the application
+
+
+
+
+
+### For Drivers
+
+1. **Register as a Driver**:
+
+1. Click "Get Started" on the landing page
+2. Select "Driver"
+3. Fill in your details in the registration form
+4. Check "Remember Me" if you want to save your information
+5. Click "Register"
+
+
+
+2. **Manage Your Availability**:
+
+1. Use the "Online/Offline" toggle to control your availability
+2. When online, your location will be broadcast to nearby passengers
+
+
+
+3. **Accept Ride Requests**:
+
+1. Ride requests will appear in your dashboard
+2. Review passenger details and distance
+3. Accept or decline the request
+4. If accepted, note the generated code to share with the passenger
+
+
+
+4. **During the Ride**:
+
+1. Monitor your route on the map
+2. The fare is calculated automatically based on distance and time
+
+
+
+5. **End the Ride**:
+
+1. The ride ends when the passenger clicks "End Ride"
+2. Your earnings will be updated in your dashboard
 
 
 
@@ -301,8 +388,9 @@ This project is licensed under the GNU General Public License v3.0. See the [LIC
   This project is a proof of concept and is not intended for production use. It highlights the potential of P2P technology in the ride-hailing industry. The app is fully built using V0. I just added some features and modified the code a little bit. While the full P2P communication is still in progress (no worries, the app works with simulated drivers for now), so I continue working on and refining this functionality. The app is fully functional and can be used to demonstrate the concept of P2P ride-hailing.
 
 ## Call to contribute
+  <a href="#">
   If you're interested in contributing to the project, please feel free to reach out. I'm looking for collaborators who are passionate about P2P technology and want to help build a better ride-hailing experience as well the P2P communication. Whether you're a developer, designer, or just someone with great ideas, your input is welcome!
-
+  </a>
 
 <div>
 Built with ❤️ •
