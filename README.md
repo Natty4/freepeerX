@@ -318,29 +318,34 @@ FreePeerX uses WebRTC (via PeerJS) for direct peer-to-peer communication between
   - **Fallback**: If P2P connection fails, the app falls back to simulated drivers
 </details>
 
-
-### Security Features
 <details>
-  <summary>Security Measures</summary>
+  <summary>Security Features</summary>
+
   - Unique 6-digit codes for ride verification
   - Code expiration after 5 minutes
   - Secure WebRTC data channels with encryption
-  </details>
+
+</details>
 
 
 ## 👨‍💻 Setting Up for Development
 
-### Project Structure
+<details>
+  <summary>Project Structure</summary>
 
-```plaintext
-freepeerx/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles
-├── js/
-│   └── app.js          # Main JavaScript file with all functionality
-├── assets/             # Images and other assets
-└── README.md           # Project documentation
-```
+  The project is organized into the following structure:
+
+  ```plaintext
+  freepeerx/
+  ├── index.html          # Main HTML file
+  ├── styles.css          # CSS styles
+  ├── js/
+  │   └── app.js          # Main JavaScript file with all functionality
+  ├── assets/             # Images and other assets
+  └── README.md           # Project documentation
+  ```
+  </details>
+
 
 ## 🔧 Development Workflow
 
