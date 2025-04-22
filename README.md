@@ -22,15 +22,19 @@
 
 ## 🛠 Technology Stack
 
-FreePeerX is built using modern web technologies:
+<details>
+  FreePeerX is built using modern web technologies:
+  <summary>Tools</summary>
+  - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+  - **Maps**: Leaflet.js for interactive maps
+  - **P2P Communication**: PeerJS (WebRTC)
+  - **Geolocation**: Browser Geolocation API
+  - **UI Framework**: Custom CSS with responsive design
+  - **Icons**: Font Awesome
+  - **Animation**: CSS3 Animations
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Maps**: Leaflet.js for interactive maps
-- **P2P Communication**: PeerJS (WebRTC)
-- **Geolocation**: Browser Geolocation API
-- **UI Framework**: Custom CSS with responsive design
-- **Icons**: Font Awesome
-- **Animation**: CSS3 Animations
+  </details>
+
 
 
 ## ✨ Features
@@ -268,17 +272,17 @@ http-server -p 8000
 
 FreePeerX is built with a modular architecture that separates concerns into distinct classes:
 
-### Core Components
+<details>
+  <summary>Core Components</summary>
+    1. **P2PCommunicationManager**: Handles all peer-to-peer communication using PeerJS
+    2. **DriverRegistration**: Manages driver information and online status
+    3. **LocationTracker**: Tracks and records user location using the Geolocation API
+    4. **FareCalculator**: Calculates ride fares based on distance and time
+    5. **CodeManager**: Generates and verifies unique codes for ride pairing
+    6. **DriversManager**: Manages driver discovery and selection
+    7. **MapManager**: Handles map initialization, markers, and routes
 
-1. **P2PCommunicationManager**: Handles all peer-to-peer communication using PeerJS
-2. **DriverRegistration**: Manages driver information and online status
-3. **LocationTracker**: Tracks and records user location using the Geolocation API
-4. **FareCalculator**: Calculates ride fares based on distance and time
-5. **CodeManager**: Generates and verifies unique codes for ride pairing
-6. **DriversManager**: Manages driver discovery and selection
-7. **MapManager**: Handles map initialization, markers, and routes
-
-
+</details>
 ### Data Flow
 
 
@@ -286,20 +290,24 @@ FreePeerX is built with a modular architecture that separates concerns into dist
 
 FreePeerX uses WebRTC (via PeerJS) for direct peer-to-peer communication between drivers and passengers:
 
-### How It Works
+<details>
+  <summary>How P2P Works</summary>
 
-1. **Peer Creation**: Each user creates a unique peer ID when they join the network
-2. **Discovery**: Drivers register with a discovery service (simulated in this demo)
-3. **Connection**: Passengers connect directly to drivers using their peer IDs
-4. **Data Exchange**: Location updates and ride requests are sent directly between peers
-5. **Fallback**: If P2P connection fails, the app falls back to simulated drivers
+  - **Peer Creation**: Each user creates a unique peer ID when they join the network
+  - **Discovery**: Drivers register with a discovery service (simulated in this demo)
+  - **Connection**: Passengers connect directly to drivers using their peer IDs
+  - **Data Exchange**: Location updates and ride requests are sent directly between peers
+  - **Fallback**: If P2P connection fails, the app falls back to simulated drivers
+</details>
 
 
 ### Security Features
-
-- Unique 6-digit codes for ride verification
-- Code expiration after 5 minutes
-- Secure WebRTC data channels with encryption
+<details>
+  <summary>Security Measures</summary>
+  - Unique 6-digit codes for ride verification
+  - Code expiration after 5 minutes
+  - Secure WebRTC data channels with encryption
+  </details>
 
 
 ## 👨‍💻 Setting Up for Development
@@ -345,29 +353,40 @@ freepeerx/
 
 
 
-
-
-
 ## 🤝 Contributing
 
 Contributions are welcome! Here's how you can contribute:
+<details>
+  <summary>How to Contribute</summary>
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
+  1. Fork the repository
+  2. Create a feature branch: `git checkout -b feature/amazing-feature`
+  3. Commit your changes: `git commit -m 'Add amazing feature'`
+  4. Push to the branch: `git push origin feature/amazing-feature`
+  5. Open a Pull Request
 
 
-### Code Style Guidelines
+  ### Code Style Guidelines
+  - Use ES6+ features where appropriate
+  - Follow the existing modular pattern
+  - Add comments for complex logic
+  - Test P2P functionality thoroughly
+</details>
+<details>
+  <summary>Reporting Issues</summary>
 
-- Use ES6+ features where appropriate
-- Follow the existing modular pattern
-- Add comments for complex logic
-- Test P2P functionality thoroughly
+  If you encounter any bugs or issues, please open an issue on GitHub. Include the following information:
+  - Steps to reproduce
+  - Expected behavior
+  - Actual behavior
+  - Screenshots (if applicable)
+  - Browser and OS information
+</details>
+
 
 
 ## Call
+
   If you're interested in contributing to the project, please feel free to reach out. I'm looking for collaborators who are passionate about P2P technology and want to help build a better ride-hailing experience as well the P2P communication. Whether you're a developer, designer, or just someone with great ideas, your input is welcome!
 
 
